@@ -5,4 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: flake8
-        run: make lint
+        run: 
+        pip install poetry
+        make install
+        make lint
