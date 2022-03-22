@@ -8,4 +8,5 @@ jobs:
         run: |
           pip install poetry
           make install
+          poetry add flake8
           make lint
