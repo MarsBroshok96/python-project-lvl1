@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: flake8
         run: 
-        pip install poetry
-        make install
-        make lint
+          pip install poetry
+          make install
+          make lint
