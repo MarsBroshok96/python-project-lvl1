@@ -4,9 +4,9 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
+      - name: oetry install
+        run: pip install poetry
+      - name: install dependencies
+        run: make install
       - name: flake8
-        run: |
-          pip install poetry
-          make install
-          poetry add flake8
-          make lint
+        run: make lint
