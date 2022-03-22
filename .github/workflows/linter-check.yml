@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install poetry
       - name: install dependencies
         run: |
           pip install poetry
