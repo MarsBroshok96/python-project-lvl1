@@ -12,3 +12,5 @@
 [![asciicast](https://asciinema.org/a/xja5oNZhaM4WlnguoPlxPnsW8.svg)](https://asciinema.org/a/xja5oNZhaM4WlnguoPlxPnsW8)
 ### Brain-games project (step 8):
 [![asciicast](https://asciinema.org/a/ffUyKFGyP0ZNZ6PiPHhu876O9.svg)](https://asciinema.org/a/ffUyKFGyP0ZNZ6PiPHhu876O9)
+### Brain-games project (step 9):
+[![asciicast](https://asciinema.org/a/ZixBiMdbGLIjjIWshRytEJYCd.svg)](https://asciinema.org/a/ZixBiMdbGLIjjIWshRytEJYCd)
