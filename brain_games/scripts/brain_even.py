@@ -1,10 +1,10 @@
 """Test user's knowledge about numbers parity."""
-from brain_games import parity_game_module
+from brain_games.games import brain_even
 
 
 def main():
     """Name as main."""
-    parity_game_module.is_even()
+    brain_even.victory_conditions()
 
 
 if __name__ == '__main__':

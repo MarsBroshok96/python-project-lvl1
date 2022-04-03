@@ -36,6 +36,22 @@ def get_player_answer(task):
     return prompt.string('Your asnwer: ')
 
 
+def generate_task_even():
+    """
+    Generate new brain_even task for player.
+
+    Returns:
+           Task and correct answer.
+    """
+    task = random.randint(0, 1000)
+
+    if task % 2 == 0:
+        answer = 'yes'
+        return (task, answer)
+    answer = 'no'
+    return (task, answer)
+
+
 def generate_task_calc():
     """
     Generate new brain_calc task for player.
