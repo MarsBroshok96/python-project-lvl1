@@ -8,3 +8,5 @@
 [![asciicast](https://asciinema.org/a/ulE7orJ199fBCC9D9elv7wghn.svg)](https://asciinema.org/a/ulE7orJ199fBCC9D9elv7wghn)
 ### Brain-games project (step 6):
 [![asciicast](https://asciinema.org/a/cllbFvKEE3Eit57L2oT5VsQkp.svg)](https://asciinema.org/a/cllbFvKEE3Eit57L2oT5VsQkp)
+### Brain-games project (step 7):
+[![asciicast](https://asciinema.org/a/xja5oNZhaM4WlnguoPlxPnsW8.svg)](https://asciinema.org/a/xja5oNZhaM4WlnguoPlxPnsW8)
