@@ -127,7 +127,7 @@ def generate_task_progression():
     for i in range(start, end, step):
         if i == answer:
             i = '..'
-        task = '{0} {1}'.format(task, str(i))
+        task = '{0}{1} '.format(task, str(i))
     return (task, str(answer))
 
 
