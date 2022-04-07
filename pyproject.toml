@@ -1,8 +1,13 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Small set of simple math games"
 authors = ["Lokisov.I <marsbroshok1996@gmail.com>"]
+classifiers = [
+"Development Status :: 5 - Production/Stable"
+]
+readme = "README.md"
+repository = "https://github.com/MarsBroshok96/python-project-lvl1"
 packages = [
 { include = "brain_games" },
 ]
