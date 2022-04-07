@@ -59,6 +59,6 @@ def run_game(game):
             return print('Congratulations, {0}!'.format(player_name))
     print(
         "'{0}' is wrong answer ;(."
-        "Correct answer was '{1}'\nLet's try again,"
+        "Correct answer was '{1}'\nLet's try again, "
         '{2}!'.format(player_answer, correct_answer, player_name),
     )
