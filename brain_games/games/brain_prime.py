@@ -1,40 +1,27 @@
 """Module with brain prime game."""
 
-from brain_games.my_engine.base import (
-    generate_task_prime,
-    get_player_answer,
-    greet_and_get_name,
-)
+import random
 
-rules = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def victory_conditions():
-    """Logic of victory and defeat + scoring.
+def generate_task():
+    """
+    Generate new brain_prime task for player.
 
     Returns:
-           Winner or loooser expression
+           Task and correct asnwer.
     """
-    player_name = greet_and_get_name(rules)
-    (task, correct_answer) = generate_task_prime()
-    player_answer = get_player_answer(task)
+    task = random.randint(1, 1000)
 
-    win_in_row = 0
+    if task % 2 == 0:
+        answer = 'no'
+        return (task, answer)
+    max_possible_prime = int((task - 1) / 2)
 
-    while player_answer == correct_answer:
-
-        print('Correct!')
-        win_in_row += 1
-
-        if win_in_row < 3:
-            (task, correct_answer) = generate_task_prime()
-            player_answer = get_player_answer(task)
-        else:
-            return print('Congratulations, {0}!'.format(player_name))
-    print(
-        "'{0}' is wrong answer ;(.".format(player_answer)
-        +
-        "Correct answer was '{0}'".format(correct_answer)
-        +
-        "\nLet's try again, {0}!".format(player_name),
-    )
+    for i in range(max_possible_prime, 1, -1):
+        if task % i == 0:
+            answer = 'no'
+            break
+        answer = 'yes'
+    return (task, answer)

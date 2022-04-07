@@ -1,40 +1,38 @@
 """Module with brain-progression game."""
 
-from brain_games.my_engine.base import (
-    generate_task_progression,
-    get_player_answer,
-    greet_and_get_name,
-)
+import random
 
-rules = 'What number is missing in the progression?'
+RULES = 'What number is missing in the progression?'
 
 
-def victory_conditions():
-    """Logic of victory and defeat + scoring.
+def generate_task():
+    """
+    Generate new brain_progression task for player.
 
     Returns:
-           Winner or loooser expression
+           Task and correct answer.
     """
-    player_name = greet_and_get_name(rules)
-    (task, correct_answer) = generate_task_progression()
-    player_answer = get_player_answer(task)
+    def generate_prog():
+        """
+        Generate simple arithmetic progression.
 
-    win_in_row = 0
+        Returns:
+               start point, end point and step for progression.
+        """
+        start = random.randint(0, 100)
+        step = random.randint(1, 100)
+        length = random.randint(5, 20)   # 5, 20: min and max length
+        end = (start + step * length) + 1
+        return (start, end, step)
 
-    while player_answer == correct_answer:
+    (start, end, step) = generate_prog()
+    progression = list(range(start, end, step))
+    answer = random.choice(progression)
 
-        print('Correct!')
-        win_in_row += 1
+    task = ''
 
-        if win_in_row < 3:
-            (task, correct_answer) = generate_task_progression()
-            player_answer = get_player_answer(task)
-        else:
-            return print('Congratulations, {0}!'.format(player_name))
-    print(
-        "'{0}' is wrong answer ;(.".format(player_answer)
-        +
-        "Correct answer was '{0}'".format(correct_answer)
-        +
-        "\nLet's try again, {0}!".format(player_name),
-    )
+    for i in range(start, end, step):
+        if i == answer:
+            i = '..'
+        task = '{0}{1} '.format(task, str(i))
+    return (task, str(answer))

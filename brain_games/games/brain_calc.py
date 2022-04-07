@@ -1,40 +1,28 @@
 """Module with brain calc game."""
 
-from brain_games.my_engine.base import (
-    generate_task_calc,
-    get_player_answer,
-    greet_and_get_name,
-)
+import random
 
-rules = 'What is the result of the expression?'
+RULES = 'What is the result of the expression?'
 
 
-def victory_conditions():
-    """Logic of victory and defeat + scoring.
+def generate_task():
+    """
+    Generate new brain_calc task for player.
 
     Returns:
-           Winner or loooser expression
+           Task and correct answer.
     """
-    player_name = greet_and_get_name(rules)
-    (task, correct_answer) = generate_task_calc()
-    player_answer = get_player_answer(task)
+    first_num = random.randint(0, 100)
+    second_num = random.randint(0, 100)
+    num_of_operator = random.randint(1, 3)
 
-    win_in_row = 0
-
-    while player_answer == correct_answer:
-
-        print('Correct!')
-        win_in_row += 1
-
-        if win_in_row < 3:
-            (task, correct_answer) = generate_task_calc()
-            player_answer = get_player_answer(task)
-        else:
-            return print('Congratulations, {0}!'.format(player_name))
-    print(
-        "'{0}' is wrong answer ;(.".format(player_answer)
-        +
-        "Correct answer was '{0}'".format(correct_answer)
-        +
-        "\nLet's try again, {0}!".format(player_name),
-    )
+    if num_of_operator == 1:
+        task = '{0} + {1}'.format(first_num, second_num)
+        answer = first_num + second_num
+    elif num_of_operator == 2:
+        task = '{0} - {1}'.format(first_num, second_num)
+        answer = first_num - second_num
+    else:
+        task = '{0} * {1}'.format(first_num, second_num)
+        answer = first_num * second_num
+    return (task, str(answer))

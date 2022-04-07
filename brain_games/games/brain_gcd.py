@@ -1,40 +1,28 @@
 """Module with brain gcd game."""
 
-from brain_games.my_engine.base import (
-    generate_task_gcd,
-    get_player_answer,
-    greet_and_get_name,
-)
+import random
 
-rules = 'Find the greatest common divisor of given numbers.'
+RULES = 'Find the greatest common divisor of given numbers.'
 
 
-def victory_conditions():
-    """Logic of victory and defeat + scoring.
+def generate_task():
+    """
+    Generate new brain_gcd task for player.
 
     Returns:
-           Winner or loooser expression
+           Task and correct answer.
     """
-    player_name = greet_and_get_name(rules)
-    (task, correct_answer) = generate_task_gcd()
-    player_answer = get_player_answer(task)
+    first_number = random.randint(0, 100)
+    second_number = random.randint(0, 100)
+    task = '{0} {1}'.format(first_number, second_number)
 
-    win_in_row = 0
+    if first_number < second_number:
+        max_possible_gcd = first_number
+    else:
+        max_possible_gcd = second_number
 
-    while player_answer == correct_answer:
-
-        print('Correct!')
-        win_in_row += 1
-
-        if win_in_row < 3:
-            (task, correct_answer) = generate_task_gcd()
-            player_answer = get_player_answer(task)
-        else:
-            return print('Congratulations, {0}!'.format(player_name))
-    print(
-        "'{0}' is wrong answer ;(.".format(player_answer)
-        +
-        "Correct answer was '{0}'".format(correct_answer)
-        +
-        "\nLet's try again, {0}!".format(player_name),
-    )
+    for i in range(max_possible_gcd, 0, -1):
+        if first_number % i == 0 and second_number % i == 0:
+            answer = i
+            break
+    return (task, str(answer))
