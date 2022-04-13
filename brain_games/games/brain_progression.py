@@ -31,5 +31,9 @@ def get_question_and_answer():
     (progression, hidden_index) = generate_progression()
     answer = str(progression[hidden_index])
     progression[hidden_index] = '..'
-    question = progression
+
+    question = ''
+    for number in progression:
+        question = '{0}{1} '. format(question, str(number))
+
     return question, answer
