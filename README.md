@@ -15,7 +15,7 @@
 1. python ^3.8;
 2. poetry-core 1.0.0
 
-## Instalation
+## Installation
 If you want to play these games:
 1. You have to "Clone" on tour GitHub or "download" this project;
 2. Use "make package-install" from "/python-project-lvl1"

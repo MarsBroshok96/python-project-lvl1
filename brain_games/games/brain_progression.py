@@ -1,38 +1,35 @@
-"""Module with brain-progression game."""
+"""Module with brain gcd game."""
 
 import random
 
-RULES = 'What number is missing in the progression?'
+RULES = 'Find the greatest common divisor of given numbers.'
 
 
-def generate_task():
+def generate_progression():
+    """
+    Generate simple arithmetic progression with choosen hidden index.
+
+    Returns:
+            Simple arithmetic progression with choosen hidden index.
+    """
+    start = random.randint(0, 100)
+    step = random.randint(1, 100)
+    length = random.randint(5, 20)   # 5, 20: min and max length
+    end = (start + step * length)
+    progression = list(range(start, end, step))
+    hidden_index = random.randrange(0, length)
+    return (progression, hidden_index)
+
+
+def get_question_and_answer():
     """
     Generate new brain_progression task for player.
 
     Returns:
-           Task and correct answer.
+           Question and correct answer.
     """
-    def generate_prog():
-        """
-        Generate simple arithmetic progression.
-
-        Returns:
-               start point, end point and step for progression.
-        """
-        start = random.randint(0, 100)
-        step = random.randint(1, 100)
-        length = random.randint(5, 20)   # 5, 20: min and max length
-        end = (start + step * length) + 1
-        return (start, end, step)
-
-    (start, end, step) = generate_prog()
-    progression = list(range(start, end, step))
-    answer = random.choice(progression)
-
-    task = ''
-
-    for i in range(start, end, step):
-        if i == answer:
-            i = '..'
-        task = '{0}{1} '.format(task, str(i))
-    return (task, str(answer))
+    (progression, hidden_index) = generate_progression()
+    answer = str(progression[hidden_index])
+    progression[hidden_index] = '..'
+    question = progression
+    return question, answer
