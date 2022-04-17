@@ -5,6 +5,26 @@ import random
 RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
+def is_prime(number):
+    """
+    Check the number for prime property.
+
+    Args:
+        number: any number
+
+    Returns:
+          Boolean
+    """
+    if number <= 1:
+        return False
+    div = 2
+    while div <= number // 2:
+        if not number % div:
+            return False
+        div += 1
+    return True
+
+
 def get_question_and_answer():
     """
     Generate new brain_prime task for player.
@@ -14,14 +34,5 @@ def get_question_and_answer():
     """
     question = random.randint(1, 1000)
 
-    if question % 2 == 0:
-        answer = 'no'
-        return question, answer
-    max_possible_prime = int((question - 1) / 2)
-
-    for i in range(max_possible_prime, 1, -1):
-        if question % i == 0:
-            answer = 'no'
-            break
-        answer = 'yes'
+    answer = 'yes' if is_prime(question) else 'no'
     return question, answer

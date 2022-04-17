@@ -27,13 +27,12 @@ def run_game(game):
         print('Question: {0}'.format(question))
         player_answer = prompt.string('Your answer: ')
 
-        if player_answer == correct_answer:
-            print('Correct!')
-        else:
+        if player_answer != correct_answer:
             print(
                 "'{0}' is wrong answer ;(."
                 "Correct answer was '{1}'\nLet's try again, "
                 '{2}!'.format(player_answer, correct_answer, player_name),
             )
             return
+        print('Correct!')
     print('Congratulations, {0}!'.format(player_name))
