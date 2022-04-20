@@ -17,7 +17,7 @@ def run_game(game):
     player_name = prompt.string('May I have your name? ')
     print('Hello, {0}!'.format(player_name))
 
-    print(game.RULES)
+    print(game.DESCRIPTION)
     (question, correct_answer) = game.get_question_and_answer()
 
     game_rounds_count = 3
